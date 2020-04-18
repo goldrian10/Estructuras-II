@@ -1,16 +1,18 @@
 #include <stdio.h>
 #include <string.h>
-
+#include <stdlib.h>
 
 
 
 int cuenta(int var){
 		char hla[50];
 		int c = 0 ;
-		while(fgets(hla, sizeof(hla) ,stdin)){
-		
-			if(hla[2] == var){
+		while(fscanf(stdin, "%*s %s %*s %*s", hla )==1){
+			
+			int hola=atoi(hla);
+			if(hola == var){
 				c++;
+				
 			}
 		}
 	
@@ -32,10 +34,10 @@ int main(int argc, char** argv){
 	
 	//determina si mi ls es un 0 o un 1
 	if(ls == 1){
-		var = 49;
+		var = 1;
 		strcpy(nombre ,"unos");
 	}else if(ls ==0){
-		var=48;
+		var=0;
 		strcpy(nombre ,"ceros");
 	}
 	contador = cuenta(var);
